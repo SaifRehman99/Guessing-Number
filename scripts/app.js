@@ -38,6 +38,7 @@ submitValue.addEventListener('click', () => {
 
         if(guessLeft ===0){
             gameResult(false,`You Lose! ${correctGuess} was the answer!`);
+            submitValue.disabled = true;
         }
         else{
 
@@ -46,7 +47,7 @@ submitValue.addEventListener('click', () => {
 
             // setting the text color here
             msg.style.color = 'red';
-            
+
             // clearing the input value
             inputValue.value = '';
 
