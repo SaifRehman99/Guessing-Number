@@ -1,30 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
+
     <!-- Skeleton Css cd here -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
     <!-- custom css -->
     <link rel="stylesheet" href="/css/style.css">
     <title>Guessing Number</title>
 </head>
+
 <body>
     <div id="overlay">
-    <!-- starting from here -->
-    <div class="container">
-        <h1>Guessing Number</h1>
-        <div id="game">
-            <p>Guess a Number Between 1 to 10</p>
-            <input type="number"  id="number" placeholder="Enter Guess">
-            <input type="submit" value="Enter" id="value">
-            <p id="message"></p>
+        <!-- starting from here -->
+        <div class="container">
+            <h1>Guessing Number</h1>
+            <div id="game">
+                <p>Guess a Number Between <span class="min-num"></span> to <span class="max-num"></span></p>
+                <input type="number" id="number" placeholder="Enter Guess">
+                <input type="submit" value="Enter" id="value">
+                <p id="message"></p>
+            </div>
         </div>
     </div>
-</div>
-    
+
 </body>
 <script src="scripts/app.js"></script>
+
 </html>
