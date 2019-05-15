@@ -1,7 +1,7 @@
 // Game Values
 let min = 1,
     max = 10,
-    correctGuess = 3,
+    correctGuess = getNumber(min, max),
     guessLeft = 3;
 
 // getting references here
@@ -10,7 +10,7 @@ const game = document.querySelector('#guessGame'),
     maxValue = document.querySelector('.max-num'),
     inputValue = document.querySelector('#inputNumber'),
     submitValue = document.querySelector('#submitValue');
-    msg = document.querySelector('#message');
+msg = document.querySelector('#message');
 
 
 // setting values for the min and max
@@ -19,8 +19,8 @@ maxValue.textContent = max;
 
 
 // adding event delegation here(top to bottom)
-game.addEventListener('mousedown',(e) => {
-    if(e.target.className === 'againPlay'){
+game.addEventListener('mousedown', (e) => {
+    if (e.target.className === 'againPlay') {
         window.location.reload()
     }
 })
@@ -40,15 +40,15 @@ submitValue.addEventListener('click', () => {
     // wining the game
     if (value === correctGuess) {
 
-        gameResult(true,`YOU WIN! ${value} is the correct guess!`);
+        gameResult(true, `YOU WIN! ${value} is the correct guess!`);
     }
-    else{
+    else {
         guessLeft--;
 
-        if(guessLeft ===0){
-            gameResult(false,`You Lose! ${correctGuess} was the answer!`);
+        if (guessLeft === 0) {
+            gameResult(false, `You Lose! ${correctGuess} was the answer!`);
         }
-        else{
+        else {
 
             // changing the border color
             inputValue.style.borderColor = 'red';
@@ -73,8 +73,8 @@ let setMessage = (text, clr) => {
 }
 
 // showing msg related to game
-const gameResult = (won,text) => {
-    won===true ? clr = 'green' : clr = 'red';
+const gameResult = (won, text) => {
+    won === true ? clr = 'green' : clr = 'red';
 
 
     // disabling the input
@@ -91,6 +91,12 @@ const gameResult = (won,text) => {
 
     // setting for the play again scenario
     submitValue.value = 'Play Again';
-    submitValue.className += 'againPlay';  
+    submitValue.className += 'againPlay';
+
+}
+
+// getting the guessing number
+const getNumber = (mn, mx) => {
+    return (Math.floor(Math.random() * (mx - mn + 1) + mn));
 
 }
