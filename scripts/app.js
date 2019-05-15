@@ -10,7 +10,7 @@ const game = document.querySelector('#guessGame'),
     maxValue = document.querySelector('.max-num'),
     inputValue = document.querySelector('#inputNumber'),
     submitValue = document.querySelector('#submitValue');
-msg = document.querySelector('#message');
+    msg = document.querySelector('#message');
 
 
 // setting values for the min and max
@@ -20,7 +20,7 @@ maxValue.textContent = max;
 // listening for the button for the input value
 submitValue.addEventListener('click', () => {
 
-    // input value
+    // getting the input value
     const value = parseInt(inputValue.value);
 
     // validating value here
@@ -31,14 +31,29 @@ submitValue.addEventListener('click', () => {
     // wining the game
     if (value === correctGuess) {
 
-        // disabling the input
-        inputValue.disabled = true;
+        gameResult(true,`YOU WIN! ${value} is the correct guess!`);
+    }
+    else{
+        guessLeft--;
 
-        // changing the input color
-        inputValue.style.borderColor = 'green'
+        if(guessLeft ===0){
+            gameResult(false,`You Lose! ${correctGuess} was the answer!`);
+        }
+        else{
 
-        // setting the msg here
-        setMessage(`YOU WIN! ${value} is the correct guess!`, 'green')
+            // changing the border color
+            inputValue.style.borderColor = 'red';
+
+            // setting the text color here
+            msg.style.color = 'red';
+            
+            // clearing the input value
+            inputValue.value = '';
+
+            // setting the message here
+            setMessage(`Wrong! ${guessLeft} guesses left! `);
+        }
+
     }
 })
 
@@ -46,4 +61,23 @@ submitValue.addEventListener('click', () => {
 let setMessage = (text, clr) => {
     msg.textContent = text;
     msg.style.color = clr;
+}
+
+// showing msg related to game
+const gameResult = (won,text) => {
+    won===true ? clr = 'green' : clr = 'red';
+
+
+    // disabling the input
+    inputValue.disabled = true;
+
+    // changing the input color
+    inputValue.style.borderColor = clr
+
+    // changing the text color
+    msg.style.color = clr
+
+    // setting the msg here
+    setMessage(text);
+
 }
