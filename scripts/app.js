@@ -81,4 +81,7 @@ const gameResult = (won,text) => {
     // setting the msg here
     setMessage(text);
 
+    submitValue.value = 'Play Again';
+    submitValue.className += 'againPlay'  
+
 }
