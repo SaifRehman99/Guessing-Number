@@ -35,13 +35,15 @@ submitValue.addEventListener('click', () => {
     // validating value here
     if (isNaN(value) || value < min || value > max) {
         setMessage(`Please Enter Between ${min} - ${max}`, `red`);
+
+        // wining the game
+        if (value === correctGuess) {
+
+            gameResult(true, `YOU WIN! ${value} is the correct guess!`);
+        }
     }
 
-    // wining the game
-    if (value === correctGuess) {
 
-        gameResult(true, `YOU WIN! ${value} is the correct guess!`);
-    }
     else {
         guessLeft--;
 
@@ -96,7 +98,7 @@ const gameResult = (won, text) => {
 }
 
 // getting the guessing number
-const getNumber = (mn, mx) => {
+function getNumber(mn, mx) {
     return (Math.floor(Math.random() * (mx - mn + 1) + mn));
 
 }
