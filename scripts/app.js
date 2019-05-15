@@ -17,6 +17,9 @@ const game = document.querySelector('#guessGame'),
 minValue.textContent = min;
 maxValue.textContent = max;
 
+
+// adding event delegation here
+
 // listening for the button for the input value
 submitValue.addEventListener('click', () => {
 
@@ -81,6 +84,7 @@ const gameResult = (won,text) => {
     // setting the msg here
     setMessage(text);
 
+    // setting for the play again scenario
     submitValue.value = 'Play Again';
     submitValue.className += 'againPlay'  
 
