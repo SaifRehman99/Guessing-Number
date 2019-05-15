@@ -5,3 +5,4 @@ let min = 1,
     guessLeft = 3;
 
 // getting references here
+const game = document.querySelector('#guessGame');
