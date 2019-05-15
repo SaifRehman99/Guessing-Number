@@ -18,7 +18,13 @@ minValue.textContent = min;
 maxValue.textContent = max;
 
 
-// adding event delegation here
+// adding event delegation here(top to bottom)
+game.addEventListener('mousedown',(e) => {
+    if(e.target.className === 'againPlay'){
+        window.location.reload()
+    }
+})
+
 
 // listening for the button for the input value
 submitValue.addEventListener('click', () => {
@@ -41,7 +47,6 @@ submitValue.addEventListener('click', () => {
 
         if(guessLeft ===0){
             gameResult(false,`You Lose! ${correctGuess} was the answer!`);
-            submitValue.disabled = true;
         }
         else{
 
@@ -86,6 +91,6 @@ const gameResult = (won,text) => {
 
     // setting for the play again scenario
     submitValue.value = 'Play Again';
-    submitValue.className += 'againPlay'  
+    submitValue.className += 'againPlay';  
 
 }
